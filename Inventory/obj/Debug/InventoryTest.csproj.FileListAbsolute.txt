@@ -1,0 +1,11 @@
+D:\Projects\VisualStudioProjects\Inventory\Inventory\obj\Debug\InventoryTest.csprojResolveAssemblyReference.cache
+D:\Projects\VisualStudioProjects\Inventory\Inventory\obj\Debug\Inventory.Inventory.resources
+D:\Projects\VisualStudioProjects\Inventory\Inventory\obj\Debug\Inventory.Properties.Resources.resources
+D:\Projects\VisualStudioProjects\Inventory\Inventory\obj\Debug\InventoryTest.csproj.GenerateResource.Cache
+D:\Projects\VisualStudioProjects\Inventory\Inventory\obj\Debug\InventoryTest.csproj.CoreCompileInputs.cache
+D:\Projects\VisualStudioProjects\Inventory\Inventory\bin\Debug\Inventory.exe.config
+D:\Projects\VisualStudioProjects\Inventory\Inventory\bin\Debug\Inventory.exe
+D:\Projects\VisualStudioProjects\Inventory\Inventory\bin\Debug\Inventory.pdb
+D:\Projects\VisualStudioProjects\Inventory\Inventory\obj\Debug\Inventory.exe
+D:\Projects\VisualStudioProjects\Inventory\Inventory\obj\Debug\Inventory.pdb
+D:\Projects\VisualStudioProjects\Inventory\Inventory\obj\Debug\Inventory.Form1.resources
