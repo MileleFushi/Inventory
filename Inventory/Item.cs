@@ -20,26 +20,11 @@ namespace Inventory
         private static String ENCODED_ELEGANT_BLUE_IMAGE = BlueElegantItemIcon._ENCODED_ELEGANT_BLUE_IMAGE;
         private static String ENCODED_WOOD_IMAGE = WoodenItemIcon._ENCODED_WOODEN_IMAGE;
 
-        private String name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-        private String description
-        {
-            get { return description; }
-            set { description = value; }
-        }
-        private Image image
-        {
-            get { return image; }
-            set { image = value; }
-        }
-        private Dictionary<String, Object> attributes
-        {
-            get { return attributes; }
-            set { attributes = value; }
-        }
+        private String name;
+        private String description;
+        private Image image;
+        private Dictionary<String, Object> attributes;
+        
         private List<String> preparedImage = new List<String>{"ENCODED_DEFAULT_IMAGE", "ENCODED_ELEGANT_BLUE_IMAGE", "ENCODED_WOOD_IMAGE"};
 
         public Item()
@@ -83,6 +68,23 @@ namespace Inventory
             this.image = image;
             this.BackgroundImage = image;
             this.attributes = attributes;
+        }
+
+        public string ItemName {
+            get => name;
+            set => name = value;
+        }
+        public string Description {
+            get => description;
+            set => description = value;
+        }
+        public Image Image {
+            get => image;
+            set => image = value;
+        }
+        public Dictionary<string, object> Attributes {
+            get => attributes;
+            set => attributes = value;
         }
 
         private static Image getDefaultIcon()

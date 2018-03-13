@@ -16,5 +16,6 @@ namespace Inventory
         {
             InitializeComponent();
         }
+        
     }
 }
