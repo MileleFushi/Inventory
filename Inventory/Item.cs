@@ -19,13 +19,14 @@ namespace Inventory
         private static String ENCODED_DEFAULT_IMAGE = DefaultItemIcon._ENCODED_DEFAULT_IMAGE;
         private static String ENCODED_ELEGANT_BLUE_IMAGE = BlueElegantItemIcon._ENCODED_ELEGANT_BLUE_IMAGE;
         private static String ENCODED_WOOD_IMAGE = WoodenItemIcon._ENCODED_WOODEN_IMAGE;
-
+        private static String ENCODED_GREEN_GRASS_IMAGE = GreenGrassItemIcon._ENCODED_GREEN_GRASS_IMAGE;
+        
         private String name;
         private String description;
         private Image image;
         private Dictionary<String, Object> attributes;
         
-        private List<String> preparedImage = new List<String>{"ENCODED_DEFAULT_IMAGE", "ENCODED_ELEGANT_BLUE_IMAGE", "ENCODED_WOOD_IMAGE"};
+        private List<String> preparedImage = new List<String>{ENCODED_DEFAULT_IMAGE, ENCODED_ELEGANT_BLUE_IMAGE, ENCODED_WOOD_IMAGE, ENCODED_GREEN_GRASS_IMAGE };
 
         public Item()
         {

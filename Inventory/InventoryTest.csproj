@@ -53,6 +53,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GreenGrassItemIcon.cs" />
+    <Compile Include="InventoryComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InventoryComponent.Designer.cs">
+      <DependentUpon>InventoryComponent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -64,6 +71,9 @@
     <Compile Include="WoodenItemIcon.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryComponent.resx">
+      <DependentUpon>InventoryComponent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Item.resx">
       <DependentUpon>Item.cs</DependentUpon>

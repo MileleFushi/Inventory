@@ -44,5 +44,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel infoPanel;
     }
 }
