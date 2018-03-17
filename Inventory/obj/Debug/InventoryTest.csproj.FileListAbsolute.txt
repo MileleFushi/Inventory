@@ -9,3 +9,4 @@ D:\Projects\VisualStudioProjects\Inventory\Inventory\obj\Debug\Inventory.pdb
 D:\Projects\VisualStudioProjects\Inventory\Inventory\obj\Debug\Inventory.Form1.resources
 D:\Projects\VisualStudioProjects\Inventory\Inventory\obj\Debug\Inventory.Item.resources
 D:\Projects\VisualStudioProjects\Inventory\Inventory\obj\Debug\Inventory.InventoryComponent.resources
+D:\Projects\VisualStudioProjects\Inventory\Inventory\obj\Debug\InventoryTest.csprojResolveAssemblyReference.cache

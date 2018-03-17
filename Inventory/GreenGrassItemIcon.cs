@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Inventory
 {
-    class GreenGrassItemIcon
+    public class GreenGrassItemIcon
     {
         private static String ENCODED_GREEN_GRASS_IMAGE =
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAAZiS0dEAAAAAAAA+UO7" +
