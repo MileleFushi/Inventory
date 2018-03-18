@@ -28,13 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.iconLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // iconLabel
+            // 
+            this.iconLabel.BackColor = System.Drawing.Color.Transparent;
+            this.iconLabel.Location = new System.Drawing.Point(9, 8);
+            this.iconLabel.Name = "iconLabel";
+            this.iconLabel.Size = new System.Drawing.Size(31, 31);
+            this.iconLabel.TabIndex = 0;
+            this.iconLabel.Text = " ";
             // 
             // Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.iconLabel);
             this.MaximumSize = new System.Drawing.Size(50, 50);
             this.MinimumSize = new System.Drawing.Size(50, 50);
             this.Name = "Item";
@@ -48,5 +59,6 @@
         #endregion
 
         private System.Windows.Forms.Panel infoPanel;
+        private System.Windows.Forms.Label iconLabel;
     }
 }

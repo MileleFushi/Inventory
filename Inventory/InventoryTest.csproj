@@ -102,7 +102,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\inventoryNull.png" />
+    <Content Include="Resources\img\inventory2Empty.png" />
+    <Content Include="Resources\img\inventory2Null.png" />
+    <Content Include="Resources\img\inventory3Empty.png" />
+    <Content Include="Resources\img\inventory3Null.png" />
+    <Content Include="Resources\img\inventory4Empty.png" />
+    <Content Include="Resources\img\inventory4Null.png" />
+    <Content Include="Resources\img\inventoryEmpty.png" />
+    <Content Include="Resources\img\inventoryNull.png" />
+    <Content Include="Resources\img\swordTest.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
