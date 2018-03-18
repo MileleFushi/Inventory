@@ -18,8 +18,9 @@ namespace Inventory
         private static String ENCODED_WOODEN_IMAGE = WoodenItemIcon._ENCODED_WOODEN_IMAGE;
         private static String ENCODED_GREEN_GRASS_IMAGE = GreenGrassItemIcon._ENCODED_GREEN_GRASS_IMAGE;
 
-        public static Color COLOR_MAIN_PANEL = Color.FromArgb(0, 215, 228, 242);
-        public static Color COLOR_PANELS_INSIDE = Color.FromArgb(0, 185, 209, 234);
+        private Color COLOR_MAIN_PANEL = Color.FromArgb(255, 215, 228, 242);
+        private Color COLOR_PANELS_INSIDE = Color.FromArgb(255, 185, 209, 234);
+        
 
         private Point itemPosition = new Point(3, 3);
         private Point itemSize = new Point(50, 50);
@@ -55,21 +56,23 @@ namespace Inventory
             switch (cb.GetItemText(cb.SelectedItem))
             {
                 case "Default":
+                    COLOR_MAIN_PANEL = Color.FromArgb(255, 215, 228, 242);
+                    COLOR_PANELS_INSIDE = Color.FromArgb(255, 185, 209, 234);
                     break;
 
                 case "Blue Elegant":
-                    COLOR_MAIN_PANEL = Color.FromArgb(0, 201, 201, 229);
-                    COLOR_PANELS_INSIDE = Color.FromArgb(0, 152, 155, 211);
+                    COLOR_MAIN_PANEL = Color.FromArgb(255, 185, 196, 255);
+                    COLOR_PANELS_INSIDE = Color.FromArgb(255, 131, 142, 214);
                     break;
 
                 case "Wooden":
-                    COLOR_MAIN_PANEL = Color.FromArgb(0, 229, 222, 201);
-                    COLOR_PANELS_INSIDE = Color.FromArgb(0, 201, 180, 134);
+                    COLOR_MAIN_PANEL = Color.FromArgb(255, 229, 222, 201);
+                    COLOR_PANELS_INSIDE = Color.FromArgb(255, 201, 180, 134);
                     break;
                     
                 case "Green Grass":
-                    COLOR_MAIN_PANEL = Color.FromArgb(0, 193, 234, 188);
-                    COLOR_PANELS_INSIDE = Color.FromArgb(0, 144, 201, 134);
+                    COLOR_MAIN_PANEL = Color.FromArgb(255, 193, 234, 188);
+                    COLOR_PANELS_INSIDE = Color.FromArgb(255, 144, 201, 134);
                     break;
             }
             
@@ -84,27 +87,12 @@ namespace Inventory
                     return ENCODED_DEFAULT_IMAGE;
 
                 case "Blue Elegant":
-                    this.BackColor = Color.FromArgb(0, 201, 201, 229);
-                    InventoryInPanel.BackColor = Color.FromArgb(0, 152, 155, 211);
-                    ItemInfoPanel.BackColor = Color.FromArgb(0, 152, 155, 211);
-                    ItemEditingPanel.BackColor = Color.FromArgb(0, 152, 155, 211);
-
                     return ENCODED_ELEGANT_BLUE_IMAGE;
                     
                 case "Wooden":
-                    this.BackColor = Color.FromArgb(0, 229, 222, 201);
-                    InventoryInPanel.BackColor = Color.FromArgb(0, 201, 180, 134);
-                    ItemInfoPanel.BackColor = Color.FromArgb(0, 201, 180, 134);
-                    ItemEditingPanel.BackColor = Color.FromArgb(0, 201, 180, 134);
-
                     return ENCODED_WOODEN_IMAGE;
                     
                 case "Green Grass":
-                    this.BackColor = Color.FromArgb(0, 193, 234, 188);
-                    InventoryInPanel.BackColor = Color.FromArgb(0, 144, 201, 134);
-                    ItemInfoPanel.BackColor = Color.FromArgb(0, 144, 201, 134);
-                    ItemEditingPanel.BackColor = Color.FromArgb(0, 144, 201, 134);
-
                     return ENCODED_GREEN_GRASS_IMAGE;
                     
             }
@@ -125,12 +113,11 @@ namespace Inventory
             else if (itemCount != 0 && itemCount % 6 == 0)
             {
                 itemPosition.X = 3;
-                itemPosition.Y += itemSize.X + 6;
+                itemPosition.Y += itemSize.Y + 6;
             }
             else { }
 
-            itemList[itemCount].SetBounds(itemPosition.X, itemPosition.Y, itemSize.X, itemSize.Y);
-
+            itemList[itemCount].SetBounds(itemPosition.X, itemPosition.Y + InventoryInPanel.AutoScrollPosition.Y, itemSize.X, itemSize.Y);
             InventoryInPanel.Controls.Add(itemList[itemCount]);
         }
 
@@ -143,12 +130,11 @@ namespace Inventory
 
             setSelectedIconColorToInterface(comboBox1);
 
-            this.BackColor = COLOR_MAIN_PANEL;
+            BackColor = COLOR_MAIN_PANEL;
             InventoryInPanel.BackColor = COLOR_PANELS_INSIDE;
             ItemInfoPanel.BackColor = COLOR_PANELS_INSIDE;
-            ItemEditingPanel.BackColor = COLOR_PANELS_INSIDE;
-
         }
-
+        
     }
+
 }

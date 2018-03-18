@@ -39,6 +39,8 @@
             this.MinimumSize = new System.Drawing.Size(50, 50);
             this.Name = "Item";
             this.Size = new System.Drawing.Size(50, 50);
+            this.Leave += new System.EventHandler(this.Item_Leave);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Item_MouseClick);
             this.ResumeLayout(false);
 
         }

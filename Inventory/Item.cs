@@ -13,7 +13,6 @@ using System.Diagnostics;
 namespace Inventory
 
 {
-
     public partial class Item : UserControl
     {
         private static String ENCODED_DEFAULT_IMAGE = DefaultItemIcon._ENCODED_DEFAULT_IMAGE;
@@ -25,8 +24,10 @@ namespace Inventory
         private String description;
         private Image image;
         private Dictionary<String, Object> attributes;
-        
-        private List<String> preparedImage = new List<String>{ENCODED_DEFAULT_IMAGE, ENCODED_ELEGANT_BLUE_IMAGE, ENCODED_WOODEN_IMAGE, ENCODED_GREEN_GRASS_IMAGE };
+
+        private Boolean selected;
+        private Image tempImage;
+        private Boolean firstClick;
 
         public Item()
         {
@@ -37,7 +38,8 @@ namespace Inventory
             image = getDefaultIcon();
             this.BackgroundImage = image;
             attributes = null;
-            Debug.WriteLine("Changed!");
+            selected = false;
+            firstClick = true;
 
         }
 
@@ -49,6 +51,8 @@ namespace Inventory
             image = getDefaultIcon();
             this.BackgroundImage = image;
             attributes = null;
+            selected = false;
+            firstClick = true;
         }
 
         public Item(String name, String description, Image image)
@@ -59,6 +63,8 @@ namespace Inventory
             this.image = image;
             this.BackgroundImage = image;
             attributes = null;
+            selected = false;
+            firstClick = true;
         }
 
         public Item(String name, String description, Image image, Dictionary<String, Object> attributes)
@@ -69,6 +75,8 @@ namespace Inventory
             this.image = image;
             this.BackgroundImage = image;
             this.attributes = attributes;
+            selected = false;
+            firstClick = true;
         }
 
         public string ItemName {
@@ -88,6 +96,31 @@ namespace Inventory
             set => attributes = value;
         }
 
+        public static Image AdjustBrightness(Image Image, int Value)
+        {
+            System.Drawing.Bitmap TempBitmap = new Bitmap(Image);
+            float FinalValue = (float)Value / 255.0f;
+            System.Drawing.Bitmap NewBitmap = new System.Drawing.Bitmap(TempBitmap.Width, TempBitmap.Height);
+            System.Drawing.Graphics NewGraphics = System.Drawing.Graphics.FromImage(NewBitmap);
+            float[][] FloatColorMatrix ={
+                     new float[] {1, 0, 0, 0, 0},
+                     new float[] {0, 1, 0, 0, 0},
+                     new float[] {0, 0, 1, 0, 0},
+                     new float[] {0, 0, 0, 1, 0},
+                     new float[] {FinalValue, FinalValue, FinalValue, 1, 1}
+                 };
+
+            System.Drawing.Imaging.ColorMatrix NewColorMatrix = new System.Drawing.Imaging.ColorMatrix(FloatColorMatrix);
+            System.Drawing.Imaging.ImageAttributes Attributes = new System.Drawing.Imaging.ImageAttributes();
+            Attributes.SetColorMatrix(NewColorMatrix);
+            NewGraphics.DrawImage(TempBitmap, new System.Drawing.Rectangle(0, 0, TempBitmap.Width, TempBitmap.Height), 0, 0, TempBitmap.Width, TempBitmap.Height, System.Drawing.GraphicsUnit.Pixel, Attributes);
+            Attributes.Dispose();
+            NewGraphics.Dispose();
+
+            return NewBitmap;
+        }
+
+
         private static Image getDefaultIcon()
         {
 
@@ -105,6 +138,24 @@ namespace Inventory
                 return null;
             }
         }
-        
+
+        private void Item_MouseClick(object sender, MouseEventArgs e)
+        {
+            selected = true;
+            
+            if (firstClick)
+            {
+                tempImage = BackgroundImage;
+                BackgroundImage = AdjustBrightness(BackgroundImage, 50);
+                firstClick = false;
+            }
+        }
+
+        private void Item_Leave(object sender, EventArgs e)
+        {
+            selected = false;
+            BackgroundImage = tempImage;
+            firstClick = true;
+        }
     }
 }
