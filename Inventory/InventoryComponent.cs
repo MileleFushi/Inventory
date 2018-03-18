@@ -102,8 +102,11 @@ namespace Inventory
         
         private void button1_Click(object sender, EventArgs e)
         {
+            List<Item> items = new List<Item>{ new Item("Item" + itemCount, "Item doesn't have description", getIconImage(getSelectedIconName(comboBox1))), new Item("Item" + itemCount, "Item doesn't have description", getIconImage(getSelectedIconName(comboBox1))) };
+            loadAllItems(items);
+            /*
             itemCount = itemList.Count;
-            
+            )
             itemList.Add(new Item("Item" + itemCount, "Item doesn't have description", getIconImage(getSelectedIconName(comboBox1))));
             Console.WriteLine(itemCount);
             if (itemCount != 0 && itemCount % 6 != 0)
@@ -119,6 +122,38 @@ namespace Inventory
 
             itemList[itemCount].SetBounds(itemPosition.X, itemPosition.Y + InventoryInPanel.AutoScrollPosition.Y, itemSize.X, itemSize.Y);
             InventoryInPanel.Controls.Add(itemList[itemCount]);
+            */
+        }
+
+        private void loadAllItems(List<Item> items)
+        {
+            
+
+            foreach(Control control in InventoryInPanel.Controls) {
+                InventoryInPanel.Controls.Remove(control);
+            }
+
+            itemPosition.X = 0;
+            itemPosition.Y = 0;
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (i != 0 && i % 6 != 0)
+                {
+                    itemPosition.X += itemSize.X + 6;
+                }
+                else if (i != 0 && i % 6 == 0)
+                {
+                    itemPosition.X = 3;
+                    itemPosition.Y += itemSize.Y + 6;
+                }
+                else { }
+
+                items[i].SetBounds(itemPosition.X, itemPosition.Y + InventoryInPanel.AutoScrollPosition.Y, itemSize.X, itemSize.Y);
+                InventoryInPanel.Controls.Add(items[i]);
+            }
+
+            itemList = new List<Item>(items);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

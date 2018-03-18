@@ -30,12 +30,10 @@
         {
             this.InventoryInPanel = new System.Windows.Forms.Panel();
             this.ItemInfoPanel = new System.Windows.Forms.Panel();
+            this.descriptionLabel = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.ItemInfoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,14 +51,32 @@
             // 
             this.ItemInfoPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ItemInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ItemInfoPanel.Controls.Add(this.textBox2);
-            this.ItemInfoPanel.Controls.Add(this.textBox1);
-            this.ItemInfoPanel.Controls.Add(this.label1);
-            this.ItemInfoPanel.Controls.Add(this.label2);
+            this.ItemInfoPanel.Controls.Add(this.descriptionLabel);
+            this.ItemInfoPanel.Controls.Add(this.nameLabel);
             this.ItemInfoPanel.Location = new System.Drawing.Point(18, 323);
             this.ItemInfoPanel.Name = "ItemInfoPanel";
             this.ItemInfoPanel.Size = new System.Drawing.Size(360, 156);
             this.ItemInfoPanel.TabIndex = 1;
+            // 
+            // descriptionLabel
+            // 
+            this.descriptionLabel.AutoSize = true;
+            this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.descriptionLabel.Location = new System.Drawing.Point(0, 27);
+            this.descriptionLabel.Name = "descriptionLabel";
+            this.descriptionLabel.Size = new System.Drawing.Size(36, 16);
+            this.descriptionLabel.TabIndex = 1;
+            this.descriptionLabel.Text = "Opis";
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nameLabel.Location = new System.Drawing.Point(0, 5);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(45, 16);
+            this.nameLabel.TabIndex = 0;
+            this.nameLabel.Text = "Name";
             // 
             // button1
             // 
@@ -86,42 +102,6 @@
             this.comboBox1.Size = new System.Drawing.Size(109, 21);
             this.comboBox1.TabIndex = 6;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(0, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Name:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(0, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Description:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(50, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(3, 46);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(350, 51);
-            this.textBox2.TabIndex = 3;
             // 
             // InventoryComponent
             // 
@@ -149,9 +129,7 @@
         private System.Windows.Forms.Panel ItemInfoPanel;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Label descriptionLabel;
     }
 }

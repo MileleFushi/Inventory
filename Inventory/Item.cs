@@ -23,6 +23,7 @@ namespace Inventory
         private String name;
         private String description;
         private Image image;
+        private String group;
         private Dictionary<String, Object> attributes;
 
         private Boolean selected;
@@ -36,6 +37,7 @@ namespace Inventory
             name = "Default";
             description = "   ";
             image = getDefaultIcon();
+            group = "   ";
             this.BackgroundImage = image;
             attributes = null;
             selected = false;

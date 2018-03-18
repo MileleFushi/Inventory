@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.inventoryComponent1 = new Inventory.InventoryComponent();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.item1 = new Inventory.Item();
             this.SuspendLayout();
             // 
@@ -37,12 +38,19 @@
             // 
             this.inventoryComponent1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.inventoryComponent1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.inventoryComponent1.Location = new System.Drawing.Point(190, 34);
+            this.inventoryComponent1.Location = new System.Drawing.Point(178, 39);
             this.inventoryComponent1.MaximumSize = new System.Drawing.Size(400, 500);
             this.inventoryComponent1.MinimumSize = new System.Drawing.Size(400, 500);
             this.inventoryComponent1.Name = "inventoryComponent1";
             this.inventoryComponent1.Size = new System.Drawing.Size(400, 500);
             this.inventoryComponent1.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(630, 82);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 1;
             // 
             // item1
             // 
@@ -52,19 +60,20 @@
             this.item1.Description = "   ";
             this.item1.Image = ((System.Drawing.Image)(resources.GetObject("item1.Image")));
             this.item1.ItemName = "Default";
-            this.item1.Location = new System.Drawing.Point(66, 124);
+            this.item1.Location = new System.Drawing.Point(73, 82);
             this.item1.MaximumSize = new System.Drawing.Size(50, 50);
             this.item1.MinimumSize = new System.Drawing.Size(50, 50);
             this.item1.Name = "item1";
             this.item1.Size = new System.Drawing.Size(50, 50);
-            this.item1.TabIndex = 1;
+            this.item1.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 580);
+            this.ClientSize = new System.Drawing.Size(919, 580);
             this.Controls.Add(this.item1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.inventoryComponent1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -76,6 +85,7 @@
         #endregion
 
         private InventoryComponent inventoryComponent1;
+        private System.Windows.Forms.Panel panel1;
         private Item item1;
     }
 }
