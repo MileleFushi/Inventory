@@ -30,10 +30,10 @@
         {
             this.InventoryInPanel = new System.Windows.Forms.Panel();
             this.ItemInfoPanel = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.groupTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.attributesTextBox = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.ItemInfoPanel.SuspendLayout();
             this.SuspendLayout();
@@ -52,60 +52,60 @@
             // 
             this.ItemInfoPanel.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ItemInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ItemInfoPanel.Controls.Add(this.textBox4);
-            this.ItemInfoPanel.Controls.Add(this.textBox3);
-            this.ItemInfoPanel.Controls.Add(this.textBox2);
-            this.ItemInfoPanel.Controls.Add(this.textBox1);
+            this.ItemInfoPanel.Controls.Add(this.descriptionTextBox);
+            this.ItemInfoPanel.Controls.Add(this.groupTextBox);
+            this.ItemInfoPanel.Controls.Add(this.nameTextBox);
+            this.ItemInfoPanel.Controls.Add(this.attributesTextBox);
             this.ItemInfoPanel.Location = new System.Drawing.Point(18, 323);
             this.ItemInfoPanel.Name = "ItemInfoPanel";
             this.ItemInfoPanel.Size = new System.Drawing.Size(360, 156);
             this.ItemInfoPanel.TabIndex = 1;
             // 
-            // textBox4
+            // descriptionTextBox
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Location = new System.Drawing.Point(3, 65);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox4.Size = new System.Drawing.Size(201, 84);
-            this.textBox4.TabIndex = 6;
+            this.descriptionTextBox.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.descriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.descriptionTextBox.Location = new System.Drawing.Point(3, 65);
+            this.descriptionTextBox.Multiline = true;
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.ReadOnly = true;
+            this.descriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.descriptionTextBox.Size = new System.Drawing.Size(201, 84);
+            this.descriptionTextBox.TabIndex = 6;
             // 
-            // textBox3
+            // groupTextBox
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Location = new System.Drawing.Point(3, 35);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(201, 24);
-            this.textBox3.TabIndex = 5;
+            this.groupTextBox.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.groupTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.groupTextBox.Location = new System.Drawing.Point(3, 35);
+            this.groupTextBox.Multiline = true;
+            this.groupTextBox.Name = "groupTextBox";
+            this.groupTextBox.ReadOnly = true;
+            this.groupTextBox.Size = new System.Drawing.Size(201, 24);
+            this.groupTextBox.TabIndex = 5;
             // 
-            // textBox2
+            // nameTextBox
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(3, 5);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(201, 24);
-            this.textBox2.TabIndex = 4;
+            this.nameTextBox.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nameTextBox.Location = new System.Drawing.Point(3, 5);
+            this.nameTextBox.Multiline = true;
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.ReadOnly = true;
+            this.nameTextBox.Size = new System.Drawing.Size(201, 24);
+            this.nameTextBox.TabIndex = 4;
             // 
-            // textBox1
+            // attributesTextBox
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(210, 5);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(143, 144);
-            this.textBox1.TabIndex = 3;
+            this.attributesTextBox.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.attributesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.attributesTextBox.Location = new System.Drawing.Point(210, 5);
+            this.attributesTextBox.Multiline = true;
+            this.attributesTextBox.Name = "attributesTextBox";
+            this.attributesTextBox.ReadOnly = true;
+            this.attributesTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.attributesTextBox.Size = new System.Drawing.Size(143, 144);
+            this.attributesTextBox.TabIndex = 3;
             // 
             // comboBox1
             // 
@@ -145,9 +145,9 @@
         public System.Windows.Forms.Panel InventoryInPanel;
         private System.Windows.Forms.Panel ItemInfoPanel;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox descriptionTextBox;
+        private System.Windows.Forms.TextBox groupTextBox;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.TextBox attributesTextBox;
     }
 }

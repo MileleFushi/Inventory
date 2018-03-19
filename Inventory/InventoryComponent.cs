@@ -54,13 +54,13 @@ namespace Inventory
             List<Item> items = new List<Item> {
                 new Item("Napierśnik Złotego Lwa", "Napierśnik bronił serce samego Thormunda Walecznego. " +
                 "Budzi postrach wśród przeciwników jako, że jego powierzchnia nie została " +
-                "ani razu skażona choćby najmniejszą rysą.", "C:/Users/Iza/source/repos/Inventory-C-sharp/Inventory/Resources/img/swordTest.png","Zbroja", null),
+                "ani razu skażona choćby najmniejszą rysą.", "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png","Zbroja", null),
                 new Item("Hełm Jednorożca", "Hełm noszony przez Elfich Rycerzy. Swoim blaskiem potrafi " +
-                "oślepic wzroga na okres dwóch tur.", "C:/Users/Iza/source/repos/Inventory-C-sharp/Inventory/Resources/img/swordTest.png", "Zbroja", null),
+                "oślepic wzroga na okres dwóch tur.", "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png", "Zbroja", null),
                 new Item("Eliksir życia", "Potrafi poprawić Twoje " +
-                "samopoczucie oraz wyleczyć Cię z ciężkich ran.", "C:/Users/Iza/source/repos/Inventory-C-sharp/Inventory/Resources/img/swordTest.png", "Pożywienie", null),
+                "samopoczucie oraz wyleczyć Cię z ciężkich ran.", "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png", "Pożywienie", null),
                 new Item("Miecz Izydora", "Dwuręczny miecz, którego " +
-                "ostrze wysadzone jest runami, o których krążą legendy.", "C:/Users/Iza/source/repos/Inventory-C-sharp/Inventory/Resources/img/swordTest.png", "Broń", null),
+                "ostrze wysadzone jest runami, o których krążą legendy.", "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png", "Broń", null),
             };
 
             return items;
@@ -180,6 +180,10 @@ namespace Inventory
             BackColor = COLOR_MAIN_PANEL;
             InventoryInPanel.BackColor = COLOR_PANELS_INSIDE;
             ItemInfoPanel.BackColor = COLOR_PANELS_INSIDE;
+            nameTextBox.BackColor = COLOR_PANELS_INSIDE;
+            groupTextBox.BackColor = COLOR_PANELS_INSIDE;
+            descriptionTextBox.BackColor = COLOR_PANELS_INSIDE;
+            attributesTextBox.BackColor = COLOR_PANELS_INSIDE;
         }
         
     }

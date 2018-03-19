@@ -45,7 +45,7 @@ namespace Inventory
             description = "   ";
             image = getIcon(ENCODED_DEFAULT_IMAGE_NULL);
             itemImage = null;
-            this.group = group;
+            tempImage = BackgroundImage;
             group = "   ";
             this.BackgroundImage = image;
             attributes = null;
@@ -61,7 +61,7 @@ namespace Inventory
             this.description = description;
             image = getIcon(ENCODED_DEFAULT_IMAGE_NULL);
             itemImage = null;
-            this.group = group;
+            tempImage = BackgroundImage;
             group = "   ";
             this.BackgroundImage = image;
             attributes = null;
@@ -75,9 +75,8 @@ namespace Inventory
             this.name = name;
             this.description = description;
             image = getIcon(ENCODED_DEFAULT_IMAGE_EMPTY);
-            this.itemImage = itemImage;
             addImageToIcon(itemImagePath);
-            this.group = group;
+            tempImage = BackgroundImage;
             group = "   ";
             this.BackgroundImage = image;
             attributes = null;
@@ -91,9 +90,9 @@ namespace Inventory
             this.name = name;
             this.description = description;
             image = getIcon(ENCODED_DEFAULT_IMAGE_EMPTY);
-            this.itemImage = itemImage;
             addImageToIcon(itemImagePath);
             this.group = group;
+            tempImage = BackgroundImage;
             group = "   ";
             this.BackgroundImage = image;
             this.attributes = attributes;
