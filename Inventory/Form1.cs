@@ -24,6 +24,9 @@ namespace Inventory
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            inventoryComponent1.addItem(new Item("Item" + itemCount, "Item doesn't have description"));
+            /*
             itemCount = itemList.Count;
             
             itemList.Add(new Item("Item" + itemCount, "Item doesn't have description"));
@@ -41,11 +44,12 @@ namespace Inventory
 
             itemList[itemCount].SetBounds(itemPosition.X, itemPosition.Y + inventoryComponent1.InventoryInPanel.AutoScrollPosition.Y, itemSize.X, itemSize.Y);
             inventoryComponent1.InventoryInPanel.Controls.Add(itemList[itemCount]);
+            */
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            inventoryComponent1.clearInventoryPanel();
+            inventoryComponent1.clearItemList();
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -40,10 +40,13 @@ namespace Inventory
 
         public void clearInventoryPanel()
         {
-            foreach (UserControl control in InventoryInPanel.Controls)
-            {
-                InventoryInPanel.Controls.Remove(control);
-            }
+            InventoryInPanel.Controls.Clear();
+        }
+
+        public void clearItemList()
+        {
+            clearInventoryPanel();
+            itemList.Clear();
         }
 
         public List<Item> createItemList()
@@ -51,13 +54,13 @@ namespace Inventory
             List<Item> items = new List<Item> {
                 new Item("Napierśnik Złotego Lwa", "Napierśnik bronił serce samego Thormunda Walecznego. " +
                 "Budzi postrach wśród przeciwników jako, że jego powierzchnia nie została " +
-                "ani razu skażona choćby najmniejszą rysą.", "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png","Zbroja", null),
+                "ani razu skażona choćby najmniejszą rysą.", "C:/Users/Iza/source/repos/Inventory-C-sharp/Inventory/Resources/img/swordTest.png","Zbroja", null),
                 new Item("Hełm Jednorożca", "Hełm noszony przez Elfich Rycerzy. Swoim blaskiem potrafi " +
-                "oślepic wzroga na okres dwóch tur.", "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png", "Zbroja", null),
+                "oślepic wzroga na okres dwóch tur.", "C:/Users/Iza/source/repos/Inventory-C-sharp/Inventory/Resources/img/swordTest.png", "Zbroja", null),
                 new Item("Eliksir życia", "Potrafi poprawić Twoje " +
-                "samopoczucie oraz wyleczyć Cię z ciężkich ran.", "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png", "Pożywienie", null),
+                "samopoczucie oraz wyleczyć Cię z ciężkich ran.", "C:/Users/Iza/source/repos/Inventory-C-sharp/Inventory/Resources/img/swordTest.png", "Pożywienie", null),
                 new Item("Miecz Izydora", "Dwuręczny miecz, którego " +
-                "ostrze wysadzone jest runami, o których krążą legendy.", "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png", "Broń", null),
+                "ostrze wysadzone jest runami, o których krążą legendy.", "C:/Users/Iza/source/repos/Inventory-C-sharp/Inventory/Resources/img/swordTest.png", "Broń", null),
             };
 
             return items;
@@ -131,6 +134,12 @@ namespace Inventory
             return ENCODED_DEFAULT_IMAGE_NULL;
         }
         
+        public void addItem(Item item)
+        {
+            itemList.Add(item);
+            loadAllItems(itemList);
+        }
+
         public void loadAllItems(List<Item> items)
         {
             clearInventoryPanel();
