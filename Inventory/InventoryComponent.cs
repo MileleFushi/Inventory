@@ -28,14 +28,13 @@ namespace Inventory
 
         private Point itemPosition = new Point(3, 3);
         private Point itemSize = new Point(50, 50);
-        private int itemCount;
         private List<Item> itemList;
 
         public InventoryComponent()
         {
             InitializeComponent();
-            itemList = createItemList();
-            loadAllItems(itemList);
+            setItems(createItemList());
+            checkGroupsList();
         }
 
         public void clearInventoryPanel()
@@ -47,23 +46,58 @@ namespace Inventory
         {
             clearInventoryPanel();
             itemList.Clear();
+            checkGroupsList();
         }
 
         public List<Item> createItemList()
         {
+            String iPath = "C:/Users/Iza/source/repos/Inventory-C-sharp/img/swordTest.png";
+            String gPath = "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png";
+
             List<Item> items = new List<Item> {
                 new Item("Napierśnik Złotego Lwa", "Napierśnik bronił serce samego Thormunda Walecznego. " +
                 "Budzi postrach wśród przeciwników jako, że jego powierzchnia nie została " +
-                "ani razu skażona choćby najmniejszą rysą.", "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png","Zbroja", null),
+                "ani razu skażona choćby najmniejszą rysą.", iPath,"Zbroja", null),
                 new Item("Hełm Jednorożca", "Hełm noszony przez Elfich Rycerzy. Swoim blaskiem potrafi " +
-                "oślepic wzroga na okres dwóch tur.", "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png", "Zbroja", null),
+                "oślepic wzroga na okres dwóch tur.", iPath, "Zbroja", null),
                 new Item("Eliksir życia", "Potrafi poprawić Twoje " +
-                "samopoczucie oraz wyleczyć Cię z ciężkich ran.", "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png", "Pożywienie", null),
+                "samopoczucie oraz wyleczyć Cię z ciężkich ran.", iPath, "Pożywienie", null),
                 new Item("Miecz Izydora", "Dwuręczny miecz, którego " +
-                "ostrze wysadzone jest runami, o których krążą legendy.", "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png", "Broń", null),
+                "ostrze wysadzone jest runami, o których krążą legendy.", iPath, "Broń", null),
             };
 
             return items;
+        }
+
+        private void checkGroupsList()
+        {
+            if(getAllItemGroups().Count == 0)
+            {
+                groupsList.Visible = false;
+            }
+            else
+            {
+                groupsList.Visible = true;
+                foreach (String group in getAllItemGroups())
+                    groupsList.Items.Add(group);
+            }
+        }
+
+        private List<String> getAllItemGroups()
+        {
+            List<String> groups = new List<String>();
+            foreach(Item item in itemList)
+            {
+                if(item.Group != null)
+                {
+                    if(!groups.Contains(item.Group))
+                    {
+                        groups.Add(item.Group);
+                    }
+                }
+            }
+
+            return groups;
         }
 
         public static Image getIconImage(String imageName)
@@ -138,6 +172,30 @@ namespace Inventory
         {
             itemList.Add(item);
             loadAllItems(itemList);
+            checkGroupsList();
+        }
+
+        private List<Item> pickItemsByGroup(String group)
+        {
+            List<Item> items = new List<Item>();
+            foreach(Item item in itemList)
+            {
+                if(item.Group != null)
+                {
+                    if(item.Group.Equals(group))
+                    {
+                        items.Add(item);
+                    }
+                }
+            }
+
+            return items;
+        }
+
+        public void setItems(List<Item> items)
+        {
+            itemList = new List<Item>(items);
+            loadAllItems(items);
         }
 
         public void loadAllItems(List<Item> items)
@@ -163,7 +221,8 @@ namespace Inventory
                 InventoryInPanel.Controls.Add(items[i]);
             }
 
-            itemList = new List<Item>(items);
+            //itemList = new List<Item>(items);
+            checkGroupsList();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -185,7 +244,13 @@ namespace Inventory
             descriptionTextBox.BackColor = COLOR_PANELS_INSIDE;
             attributesTextBox.BackColor = COLOR_PANELS_INSIDE;
         }
-        
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String selectedGroup = groupsList.SelectedItems[0].SubItems[0].Text; // TODO exception
+            System.Diagnostics.Debug.WriteLine("Chosen group: " + selectedGroup);
+            loadAllItems(pickItemsByGroup(selectedGroup));
+        }
     }
 
 }

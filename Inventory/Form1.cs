@@ -55,7 +55,7 @@ namespace Inventory
         private void button3_Click(object sender, EventArgs e)
         {
             itemList = inventoryComponent1.createItemList();
-            inventoryComponent1.loadAllItems(itemList);
+            inventoryComponent1.setItems(itemList);
         }
     }
 }
