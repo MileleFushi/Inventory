@@ -35,6 +35,7 @@ namespace Inventory
             InitializeComponent();
             setItems(createItemList());
             checkGroupsList();
+
         }
 
         public void clearInventoryPanel()
@@ -52,18 +53,18 @@ namespace Inventory
         public List<Item> createItemList()
         {
             String iPath = "C:/Users/Iza/source/repos/Inventory-C-sharp/img/swordTest.png";
-            String gPath = "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png";
+            String gPath = "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png"; //Iza jesteś niesamowita <3
 
             List<Item> items = new List<Item> {
                 new Item("Napierśnik Złotego Lwa", "Napierśnik bronił serce samego Thormunda Walecznego. " +
                 "Budzi postrach wśród przeciwników jako, że jego powierzchnia nie została " +
-                "ani razu skażona choćby najmniejszą rysą.", iPath,"Zbroja", null),
+                "ani razu skażona choćby najmniejszą rysą.", gPath,"Zbroja", null),
                 new Item("Hełm Jednorożca", "Hełm noszony przez Elfich Rycerzy. Swoim blaskiem potrafi " +
-                "oślepic wzroga na okres dwóch tur.", iPath, "Zbroja", null),
+                "oślepic wzroga na okres dwóch tur.", gPath, "Zbroja", null),
                 new Item("Eliksir życia", "Potrafi poprawić Twoje " +
-                "samopoczucie oraz wyleczyć Cię z ciężkich ran.", iPath, "Pożywienie", null),
+                "samopoczucie oraz wyleczyć Cię z ciężkich ran.", gPath, "Pożywienie", null),
                 new Item("Miecz Izydora", "Dwuręczny miecz, którego " +
-                "ostrze wysadzone jest runami, o których krążą legendy.", iPath, "Broń", null),
+                "ostrze wysadzone jest runami, o których krążą legendy.", gPath, "Broń", null),
             };
 
             return items;
@@ -79,24 +80,30 @@ namespace Inventory
             {
                 groupsList.Visible = true;
                 foreach (String group in getAllItemGroups())
+                {
+                    Console.WriteLine(group);
                     groupsList.Items.Add(group);
+                }
             }
         }
 
         private List<String> getAllItemGroups()
         {
             List<String> groups = new List<String>();
-            foreach(Item item in itemList)
+            for (int i = 0; i < itemList.Count; i++)
             {
-                if(item.Group != null)
-                {
-                    if(!groups.Contains(item.Group))
-                    {
-                        groups.Add(item.Group);
-                    }
-                }
+                Console.WriteLine(i + " " + itemList[i]);
             }
-
+            foreach (Item item in itemList)
+            {
+                if(item.Group != null && !groups.Contains(item.Group))
+                {
+                    
+                        groups.Add(item.Group);
+                }
+                Console.WriteLine("+1");
+            }
+            
             return groups;
         }
 
@@ -206,6 +213,7 @@ namespace Inventory
 
             for (int i = 0; i < items.Count; i++)
             {
+                
                 if (i != 0 && i % 6 != 0)
                 {
                     itemPosition.X += itemSize.X + 6;
@@ -220,9 +228,7 @@ namespace Inventory
                 items[i].SetBounds(itemPosition.X, itemPosition.Y + InventoryInPanel.AutoScrollPosition.Y, itemSize.X, itemSize.Y);
                 InventoryInPanel.Controls.Add(items[i]);
             }
-
-            //itemList = new List<Item>(items);
-            checkGroupsList();
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -247,9 +253,12 @@ namespace Inventory
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String selectedGroup = groupsList.SelectedItems[0].SubItems[0].Text; // TODO exception
-            System.Diagnostics.Debug.WriteLine("Chosen group: " + selectedGroup);
-            loadAllItems(pickItemsByGroup(selectedGroup));
+            if (groupsList.SelectedItems.Count != 0)
+            {
+                String selectedGroup = groupsList.SelectedItems[0].SubItems[0].Text; // TODO exception, już nie! :3
+                System.Diagnostics.Debug.WriteLine("Chosen group: " + selectedGroup);
+                loadAllItems(pickItemsByGroup(selectedGroup));
+            }
         }
     }
 
