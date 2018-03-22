@@ -60,6 +60,6 @@
         #endregion
 
         private System.Windows.Forms.Panel infoPanel;
-        private TransparentClickablePanel transparentClickablePanel1;
+        public TransparentClickablePanel transparentClickablePanel1;
     }
 }

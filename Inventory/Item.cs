@@ -33,10 +33,12 @@ namespace Inventory
         private String group;
         private Dictionary<String, Object> attributes;
 
-        private Boolean selected;
+        public Boolean selected;
         private Image tempImage;
         private Image tempIcon;
         private Boolean firstClick;
+
+        public event EventHandler MouseClickeddd;
 
         public Item()
         {
@@ -198,24 +200,6 @@ namespace Inventory
             catch (Exception e)
             {
                 return null;
-            }
-        }
-
-        private void Item_MouseClick(object sender, MouseEventArgs e)
-        {
-            selected = true;
-            
-            if (firstClick)
-            {
-                tempImage = BackgroundImage;
-                BackgroundImage = adjustBrightness(BackgroundImage, 50);
-                firstClick = false;
-            }
-            else
-            {
-                selected = false;
-                BackgroundImage = tempImage;
-                firstClick = true;
             }
         }
         

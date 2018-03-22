@@ -30,14 +30,21 @@ namespace Inventory
         private Point itemSize = new Point(50, 50);
         private List<Item> itemList;
 
+
+
         public InventoryComponent()
         {
             InitializeComponent();
             setItems(createItemList());
             checkGroupsList();
 
+            foreach(var item in itemList)
+            {
+                item.transparentClickablePanel1.Click += new System.EventHandler(this.mouseOnItemClick);
+            }
+            
         }
-
+        
         public void clearInventoryPanel()
         {
             InventoryInPanel.Controls.Clear();
@@ -70,6 +77,25 @@ namespace Inventory
             return items;
         }
 
+        private void checkIfItemSelected()
+        {
+            foreach (var item in itemList)
+            {
+                if (item.selected)
+                {
+
+                    nameTextBox.Text = item.ItemName;
+                    groupTextBox.Text = item.Group;
+                    descriptionTextBox.Text = item.Description;
+                    /*foreach (var pair in item.Attributes)
+                    {
+                        attributesTextBox.Text += "Atrybut: " + pair.Key + "\nEfekt: " + pair.Value + "\n";
+                    }*/
+                }
+                else { }
+            }
+        }
+
         private void checkGroupsList()
         {
             if(getAllItemGroups().Count == 0)
@@ -90,10 +116,7 @@ namespace Inventory
         private List<String> getAllItemGroups()
         {
             List<String> groups = new List<String>();
-            for (int i = 0; i < itemList.Count; i++)
-            {
-                Console.WriteLine(i + " " + itemList[i]);
-            }
+            
             foreach (Item item in itemList)
             {
                 if (item.Group != null && !groups.Contains(item.Group))
@@ -101,7 +124,7 @@ namespace Inventory
 
                     groups.Add(item.Group);
                 }
-                Console.WriteLine("+1");
+                
             }
             
             return groups;
@@ -255,9 +278,22 @@ namespace Inventory
         {
             if (groupsList.SelectedItems.Count != 0)
             {
-                String selectedGroup = groupsList.SelectedItems[0].SubItems[0].Text; // TODO exception, już nie! :3
-                System.Diagnostics.Debug.WriteLine("Chosen group: " + selectedGroup);
+                String selectedGroup = groupsList.SelectedItems[0].SubItems[0].Text;
                 loadAllItems(pickItemsByGroup(selectedGroup));
+            }
+        }
+        
+        private void mouseOnItemClick(object sender, EventArgs e)
+        {
+            checkIfItemSelected();
+        }
+
+        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count != 0)
+            {
+                
+                setItems(itemList);
             }
         }
     }

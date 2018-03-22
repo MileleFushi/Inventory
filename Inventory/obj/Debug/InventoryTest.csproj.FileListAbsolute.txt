@@ -13,7 +13,6 @@ D:\Projects\VisualStudioProjects\Inventory\Inventory\obj\Debug\InventoryTest.csp
 D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\bin\Debug\Inventory.exe.config
 D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\bin\Debug\Inventory.exe
 D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\bin\Debug\Inventory.pdb
-D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\InventoryTest.csprojResolveAssemblyReference.cache
 D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\Inventory.Form1.resources
 D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\Inventory.InventoryComponent.resources
 D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\Inventory.Item.resources
@@ -23,4 +22,4 @@ D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\InventoryTest.
 D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\Inventory.exe
 D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\Inventory.pdb
 D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\Inventory.TransparentClickablePanel.resources
-D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\Inventory.ImageLabel.resources
+D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\InventoryTest.csprojResolveAssemblyReference.cache

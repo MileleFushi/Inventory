@@ -58,12 +58,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GreenGrassItemIcon.cs" />
-    <Compile Include="ImageLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ImageLabel.Designer.cs">
-      <DependentUpon>ImageLabel.cs</DependentUpon>
-    </Compile>
     <Compile Include="InventoryComponent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,9 +81,6 @@
     <Compile Include="WoodenItemIcon.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ImageLabel.resx">
-      <DependentUpon>ImageLabel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryComponent.resx">
       <DependentUpon>InventoryComponent.cs</DependentUpon>
