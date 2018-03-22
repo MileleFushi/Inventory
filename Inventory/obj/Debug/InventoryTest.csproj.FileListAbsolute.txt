@@ -22,3 +22,5 @@ D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\InventoryTest.
 D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\InventoryTest.csproj.CoreCompileInputs.cache
 D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\Inventory.exe
 D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\Inventory.pdb
+D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\Inventory.TransparentClickablePanel.resources
+D:\Projects\VisualStudioProjects\Inventory2.0\Inventory\obj\Debug\Inventory.ImageLabel.resources

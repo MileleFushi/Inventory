@@ -96,10 +96,10 @@ namespace Inventory
             }
             foreach (Item item in itemList)
             {
-                if(item.Group != null && !groups.Contains(item.Group))
+                if (item.Group != null && !groups.Contains(item.Group))
                 {
-                    
-                        groups.Add(item.Group);
+
+                    groups.Add(item.Group);
                 }
                 Console.WriteLine("+1");
             }

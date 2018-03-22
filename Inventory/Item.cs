@@ -35,6 +35,7 @@ namespace Inventory
 
         private Boolean selected;
         private Image tempImage;
+        private Image tempIcon;
         private Boolean firstClick;
 
         public Item()
@@ -129,7 +130,8 @@ namespace Inventory
         public void addImageToIcon(String imagePath)
         {
             itemImage = Image.FromFile(imagePath);
-            iconLabel.Image = ResizeImage(itemImage, 31, 31);
+            transparentClickablePanel1.BackgroundImage = ResizeImage(itemImage, 31, 31);
+            tempIcon = transparentClickablePanel1.BackgroundImage;
         }
 
         public static Image adjustBrightness(Image Image, int Value)
@@ -209,13 +211,33 @@ namespace Inventory
                 BackgroundImage = adjustBrightness(BackgroundImage, 50);
                 firstClick = false;
             }
+            else
+            {
+                selected = false;
+                BackgroundImage = tempImage;
+                firstClick = true;
+            }
+        }
+        
+        private void transparentClickablePanel1_Click(object sender, EventArgs e)
+        {
+            selected = true;
+
+            if (firstClick)
+            {
+                tempImage = BackgroundImage;
+                BackgroundImage = adjustBrightness(BackgroundImage, 50);
+                firstClick = false;
+            }
         }
 
-        private void Item_Leave(object sender, EventArgs e)
+        private void transparentClickablePanel1_Leave(object sender, EventArgs e)
         {
+            
             selected = false;
             BackgroundImage = tempImage;
             firstClick = true;
         }
+        
     }
 }

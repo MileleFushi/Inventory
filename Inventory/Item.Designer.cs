@@ -28,30 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.iconLabel = new System.Windows.Forms.Label();
+            this.transparentClickablePanel1 = new Inventory.TransparentClickablePanel();
             this.SuspendLayout();
             // 
-            // iconLabel
+            // transparentClickablePanel1
             // 
-            this.iconLabel.BackColor = System.Drawing.Color.Transparent;
-            this.iconLabel.Location = new System.Drawing.Point(9, 8);
-            this.iconLabel.Name = "iconLabel";
-            this.iconLabel.Size = new System.Drawing.Size(31, 31);
-            this.iconLabel.TabIndex = 0;
-            this.iconLabel.Text = " ";
+            this.transparentClickablePanel1.BackColor = System.Drawing.Color.Transparent;
+            this.transparentClickablePanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.transparentClickablePanel1.ForeColor = System.Drawing.Color.Transparent;
+            this.transparentClickablePanel1.Location = new System.Drawing.Point(0, 0);
+            this.transparentClickablePanel1.Name = "transparentClickablePanel1";
+            this.transparentClickablePanel1.Size = new System.Drawing.Size(50, 50);
+            this.transparentClickablePanel1.TabIndex = 1;
+            this.transparentClickablePanel1.Click += new System.EventHandler(this.transparentClickablePanel1_Click);
+            this.transparentClickablePanel1.Leave += new System.EventHandler(this.transparentClickablePanel1_Leave);
             // 
             // Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.iconLabel);
+            this.Controls.Add(this.transparentClickablePanel1);
             this.MaximumSize = new System.Drawing.Size(50, 50);
             this.MinimumSize = new System.Drawing.Size(50, 50);
             this.Name = "Item";
             this.Size = new System.Drawing.Size(50, 50);
-            this.Leave += new System.EventHandler(this.Item_Leave);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Item_MouseClick);
             this.ResumeLayout(false);
 
         }
@@ -59,6 +60,6 @@
         #endregion
 
         private System.Windows.Forms.Panel infoPanel;
-        private System.Windows.Forms.Label iconLabel;
+        private TransparentClickablePanel transparentClickablePanel1;
     }
 }
