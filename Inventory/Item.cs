@@ -31,14 +31,12 @@ namespace Inventory
         private Image image;
         private Image itemImage;
         private String group;
-        private Dictionary<String, Object> attributes;
+        private Dictionary<String, String> attributes;
 
         public Boolean selected;
         private Image tempImage;
         private Image tempIcon;
         private Boolean firstClick;
-
-        public event EventHandler MouseClickeddd;
 
         public Item()
         {
@@ -46,7 +44,7 @@ namespace Inventory
 
             name = "Default";
             description = "   ";
-            image = getIcon(ENCODED_DEFAULT_IMAGE_NULL);
+            image = getIcon(InventoryComponent.getSelectedIconNullImage(InventoryComponent.comboBox));
             itemImage = null;
             tempImage = BackgroundImage;
             group = null;
@@ -60,9 +58,10 @@ namespace Inventory
         public Item(String name, String description)
         {
             InitializeComponent();
+
             this.name = name;
             this.description = description;
-            image = getIcon(ENCODED_DEFAULT_IMAGE_NULL);
+            image = getIcon(InventoryComponent.getSelectedIconNullImage(InventoryComponent.comboBox));
             itemImage = null;
             tempImage = BackgroundImage;
             group = null;
@@ -75,28 +74,46 @@ namespace Inventory
         public Item(String name, String description, String itemImagePath)
         {
             InitializeComponent();
+
+            if (itemImagePath == null)
+            {
+                image = getIcon(InventoryComponent.getSelectedIconNullImage(InventoryComponent.comboBox));
+            }
+            else
+            {
+                image = getIcon(InventoryComponent.getSelectedIconEmptyImage(InventoryComponent.comboBox));
+                addImageToIcon(itemImagePath);
+            }
+
             this.name = name;
             this.description = description;
-            image = getIcon(ENCODED_DEFAULT_IMAGE_EMPTY);
-            addImageToIcon(itemImagePath);
             tempImage = BackgroundImage;
             group = null;
-            this.BackgroundImage = image;
+            BackgroundImage = image;
             attributes = null;
             selected = false;
             firstClick = true;
         }
 
-        public Item(String name, String description, String itemImagePath, String group, Dictionary<String, Object> attributes)
+        public Item(String name, String description, String itemImagePath, String group, Dictionary<String, String> attributes)
         {
             InitializeComponent();
+
+            if (itemImagePath == null)
+            {
+                image = getIcon(InventoryComponent.getSelectedIconNullImage(InventoryComponent.comboBox));
+            }
+            else
+            {
+                image = getIcon(InventoryComponent.getSelectedIconEmptyImage(InventoryComponent.comboBox));
+                addImageToIcon(itemImagePath);
+            }
             this.name = name;
             this.description = description;
-            image = getIcon(ENCODED_DEFAULT_IMAGE_EMPTY);
-            addImageToIcon(itemImagePath);
+            
             this.group = group;
             tempImage = BackgroundImage;
-            this.BackgroundImage = image;
+            BackgroundImage = image;
             this.attributes = attributes;
             selected = false;
             firstClick = true;
@@ -124,7 +141,7 @@ namespace Inventory
             get => group;
             set => group = value;
         }
-        public Dictionary<string, object> Attributes {
+        public Dictionary<string, string> Attributes {
             get => attributes;
             set => attributes = value;
         }
@@ -201,6 +218,17 @@ namespace Inventory
             {
                 return null;
             }
+        }
+
+        public Dictionary<String, String> setAttributes(List<Dictionary<String, String>> attribute)
+        {
+            Dictionary<String, String> dic = new Dictionary<String, String>();
+            for(int i=0; i< attribute.Count; i++)
+            {
+                //dic.Add(attribute[i]);
+            }
+
+            return dic;
         }
         
         private void transparentClickablePanel1_Click(object sender, EventArgs e)

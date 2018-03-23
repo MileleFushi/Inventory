@@ -24,17 +24,19 @@ namespace Inventory
 
         private Color COLOR_MAIN_PANEL = Color.FromArgb(255, 215, 228, 242);
         private Color COLOR_PANELS_INSIDE = Color.FromArgb(255, 185, 209, 234);
-        
 
-        private Point itemPosition = new Point(3, 3);
-        private Point itemSize = new Point(50, 50);
-        private List<Item> itemList;
+        public static ComboBox comboBox;
+
+        public static Point itemPosition = new Point(3, 3);
+        public static Point itemSize = new Point(50, 50);
+        public static List<Item> itemList;
 
 
 
         public InventoryComponent()
         {
             InitializeComponent();
+            comboBox = comboBox1;
             setItems(createItemList());
             checkGroupsList();
 
@@ -54,6 +56,7 @@ namespace Inventory
         {
             clearInventoryPanel();
             itemList.Clear();
+            groupsList.Clear();
             checkGroupsList();
         }
 
@@ -65,13 +68,17 @@ namespace Inventory
             List<Item> items = new List<Item> {
                 new Item("Napierśnik Złotego Lwa", "Napierśnik bronił serce samego Thormunda Walecznego. " +
                 "Budzi postrach wśród przeciwników jako, że jego powierzchnia nie została " +
-                "ani razu skażona choćby najmniejszą rysą.", gPath,"Zbroja", null),
+                "ani razu skażona choćby najmniejszą rysą.", gPath,"Zbroja", new Dictionary<string, string>(){ { "Obrona", "40" }, { "(Pasywny) \r\nEfekt " +
+                "kamiennej skóry", "Zwiększa obronę bohatera przez pierwszą turę o 30 punktów." } }),
                 new Item("Hełm Jednorożca", "Hełm noszony przez Elfich Rycerzy. Swoim blaskiem potrafi " +
-                "oślepic wzroga na okres dwóch tur.", gPath, "Zbroja", null),
+                "oślepic wzroga.", gPath, "Zbroja", new Dictionary<string, string>(){ { "Obrona", "15" }, { "(Aktywny) \r\nEfekt " +
+                "oślepienia", "Aktywowana oślepia przeciwnika na okres dwóch tur. " } }),
                 new Item("Eliksir życia", "Potrafi poprawić Twoje " +
-                "samopoczucie oraz wyleczyć Cię z ciężkich ran.", gPath, "Pożywienie", null),
+                "samopoczucie oraz wyleczyć Cię z ciężkich ran.", gPath, "Pożywienie", new Dictionary<string, string>(){ { "(Aktywny) " +
+                "\r\nEfekt regeneracji życia", "Aktywowany regeneruje 250 punktów życia." } }),
                 new Item("Miecz Izydora", "Dwuręczny miecz, którego " +
-                "ostrze wysadzone jest runami, o których krążą legendy.", gPath, "Broń", null),
+                "ostrze wysadzone jest runami, o których krążą legendy.", gPath, "Broń", new Dictionary<string, string>(){ { "Si" +
+                "ła", "80" }, { "(Pasywny) \r\nEfekt trwogi", "Obrona przeciwników w pobliżu zmniejsza się o 20 punktów." } }),
             };
 
             return items;
@@ -83,14 +90,14 @@ namespace Inventory
             {
                 if (item.selected)
                 {
-
+                    attributesTextBox.Clear();
                     nameTextBox.Text = item.ItemName;
                     groupTextBox.Text = item.Group;
                     descriptionTextBox.Text = item.Description;
-                    /*foreach (var pair in item.Attributes)
+                    foreach (var pair in item.Attributes)
                     {
-                        attributesTextBox.Text += "Atrybut: " + pair.Key + "\nEfekt: " + pair.Value + "\n";
-                    }*/
+                        attributesTextBox.Text += pair.Key + "\r\n" + pair.Value + "\r\n\r\n";
+                    }
                 }
                 else { }
             }
@@ -153,22 +160,22 @@ namespace Inventory
 
             switch (cb.GetItemText(cb.SelectedItem))
             {
-                case "Default":
+                case "Domyślny":
                     COLOR_MAIN_PANEL = Color.FromArgb(255, 215, 228, 242);
                     COLOR_PANELS_INSIDE = Color.FromArgb(255, 185, 209, 234);
                     break;
 
-                case "Blue Elegant":
-                    COLOR_MAIN_PANEL = Color.FromArgb(255, 185, 196, 255);
-                    COLOR_PANELS_INSIDE = Color.FromArgb(255, 131, 142, 214);
+                case "Szykowny niebieski":
+                    COLOR_MAIN_PANEL = Color.FromArgb(255, 160, 188, 242);
+                    COLOR_PANELS_INSIDE = Color.FromArgb(255, 124, 160, 232);
                     break;
 
-                case "Wooden":
+                case "Tradycyjny drewniany":
                     COLOR_MAIN_PANEL = Color.FromArgb(255, 229, 222, 201);
                     COLOR_PANELS_INSIDE = Color.FromArgb(255, 201, 180, 134);
                     break;
                     
-                case "Green Grass":
+                case "Świeży zielony":
                     COLOR_MAIN_PANEL = Color.FromArgb(255, 193, 234, 188);
                     COLOR_PANELS_INSIDE = Color.FromArgb(255, 144, 201, 134);
                     break;
@@ -176,28 +183,52 @@ namespace Inventory
             
         }
 
-        public String getSelectedIconName(ComboBox cb)
+        public static String getSelectedIconEmptyImage(ComboBox cb)
         {
             
             switch (cb.GetItemText(cb.SelectedItem))
             {
-                case "Default":
+                case "Domyślny":
                     return ENCODED_DEFAULT_IMAGE_EMPTY;
 
-                case "Blue Elegant":
+                case "Szykowny niebieski":
                     return ENCODED_ELEGANT_BLUE_IMAGE_EMPTY;
                     
-                case "Wooden":
+                case "Tradycyjny drewniany":
                     return ENCODED_WOODEN_IMAGE_EMPTY;
                     
-                case "Green Grass":
+                case "Świeży zielony":
                     return ENCODED_GREEN_GRASS_IMAGE_EMPTY;
                     
             }
 
+            return ENCODED_DEFAULT_IMAGE_EMPTY;
+        }
+
+        public static String getSelectedIconNullImage(ComboBox cb)
+        {
+
+            switch (cb.GetItemText(cb.SelectedItem))
+            {
+                case "Domyślny":
+                    return ENCODED_DEFAULT_IMAGE_NULL;
+
+                case "Szykowny niebieski":
+                    return ENCODED_ELEGANT_BLUE_IMAGE_NULL;
+
+                case "Tradycyjny drewniany":
+                    return ENCODED_WOODEN_IMAGE_NULL;
+
+                case "Świeży zielony":
+                    return ENCODED_GREEN_GRASS_IMAGE_NULL;
+
+            }
+
             return ENCODED_DEFAULT_IMAGE_NULL;
         }
-        
+
+
+
         public void addItem(Item item)
         {
             itemList.Add(item);
@@ -232,7 +263,7 @@ namespace Inventory
         {
             clearInventoryPanel();
 
-            itemPosition = new Point(0, 0);
+            itemPosition = new Point(3, 3);
 
             for (int i = 0; i < items.Count; i++)
             {
@@ -256,13 +287,20 @@ namespace Inventory
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             foreach (var item in itemList)
             {
-                item.BackgroundImage = getIconImage(getSelectedIconName(comboBox1));
+                if (item.ItemImage != null)
+                {
+                    item.BackgroundImage = getIconImage(getSelectedIconEmptyImage(comboBox1));
+                }
+                else
+                {
+                    item.BackgroundImage = getIconImage(getSelectedIconNullImage(comboBox1));
+                }
+                
             }
-            
-            
+
             setSelectedIconColorToInterface(comboBox1);
 
             BackColor = COLOR_MAIN_PANEL;
@@ -283,7 +321,7 @@ namespace Inventory
             }
         }
         
-        private void mouseOnItemClick(object sender, EventArgs e)
+        public void mouseOnItemClick(object sender, EventArgs e)
         {
             checkIfItemSelected();
         }
@@ -292,10 +330,27 @@ namespace Inventory
         {
             if (listView1.SelectedItems.Count != 0)
             {
-                
                 setItems(itemList);
             }
         }
+
+        private void InventoryComponent_Load(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 0;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            nameTextBox.Font = new Font(comboBox2.SelectedItem.ToString(), nameTextBox.Font.Size, nameTextBox.Font.Style);
+            groupTextBox.Font = new Font(comboBox2.SelectedItem.ToString(), groupTextBox.Font.Size, groupTextBox.Font.Style);
+            descriptionTextBox.Font = new Font(comboBox2.SelectedItem.ToString(), descriptionTextBox.Font.Size, descriptionTextBox.Font.Style);
+            attributesTextBox.Font = new Font(comboBox2.SelectedItem.ToString(), attributesTextBox.Font.Size, attributesTextBox.Font.Style);
+
+            
+
+        }
+    
     }
 
 }

@@ -12,10 +12,8 @@ namespace Inventory
 {
     public partial class Form1 : Form
     {
-        private Point itemPosition = new Point(3, 3);
-        private Point itemSize = new Point(50, 50);
-        private int itemCount;
-        private List<Item> itemList = new List<Item>();
+        private Point itemPosition = InventoryComponent.itemPosition;
+        private Point itemSize = InventoryComponent.itemSize;
 
         public Form1()
         {
@@ -24,38 +22,25 @@ namespace Inventory
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            inventoryComponent1.addItem(new Item("Item" + itemCount, "Item doesn't have description"));
-            /*
-            itemCount = itemList.Count;
-            
-            itemList.Add(new Item("Item" + itemCount, "Item doesn't have description"));
-
-            if (itemCount != 0 && itemCount % 6 != 0)
+            inventoryComponent1.groupsList.Clear();
+            inventoryComponent1.addItem(new Item("Przedmiot " + InventoryComponent.itemList.Count, "Przedmiot nie posiada opisu.", null, "Brak", new Dictionary<string, string>() { { "Brak", "   " } }));
+            foreach (var item in InventoryComponent.itemList)
             {
-                itemPosition.X += itemSize.X + 6;
+                item.transparentClickablePanel1.Click += new System.EventHandler(inventoryComponent1.mouseOnItemClick);
             }
-            else if (itemCount != 0 && itemCount % 6 == 0)
-            {
-                itemPosition.X = 3;
-                itemPosition.Y += itemSize.Y + 6;
-            }
-            else { }
-
-            itemList[itemCount].SetBounds(itemPosition.X, itemPosition.Y + inventoryComponent1.InventoryInPanel.AutoScrollPosition.Y, itemSize.X, itemSize.Y);
-            inventoryComponent1.InventoryInPanel.Controls.Add(itemList[itemCount]);
-            */
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             inventoryComponent1.clearItemList();
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            itemList = inventoryComponent1.createItemList();
-            inventoryComponent1.setItems(itemList);
+            InventoryComponent.itemList = inventoryComponent1.createItemList();
+            inventoryComponent1.setItems(InventoryComponent.itemList);
         }
     }
 }
