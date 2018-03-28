@@ -91,7 +91,7 @@
             // 
             // inventoryComponent1
             // 
-            this.inventoryComponent1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.inventoryComponent1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(228)))), ((int)(((byte)(242)))));
             this.inventoryComponent1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.inventoryComponent1.Location = new System.Drawing.Point(141, 40);
             this.inventoryComponent1.MaximumSize = new System.Drawing.Size(400, 475);

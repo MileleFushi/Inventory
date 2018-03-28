@@ -115,18 +115,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\img\inventory2Empty.png" />
-    <Content Include="Resources\img\inventory2Null.png" />
-    <Content Include="Resources\img\inventory3Empty.png" />
-    <Content Include="Resources\img\inventory3Null.png" />
-    <Content Include="Resources\img\inventory4Empty.png" />
-    <Content Include="Resources\img\inventory4Null.png" />
-    <Content Include="Resources\img\inventoryEmpty.png" />
-    <Content Include="Resources\img\inventoryNull.png" />
-    <Content Include="Resources\img\swordTest.png" />
-    <None Include="Resources\inventory4Null.png" />
-    <None Include="Resources\inventoryNull.png" />
-    <None Include="Resources\swordTest.png" />
+    <Content Include="Resources\armor.png" />
+    <Content Include="Resources\helmet.png" />
+    <Content Include="Resources\inventory2Empty.png" />
+    <Content Include="Resources\inventory2Null.png" />
+    <Content Include="Resources\inventory3Empty.png" />
+    <Content Include="Resources\inventory3Null.png" />
+    <Content Include="Resources\inventory4Empty.png" />
+    <Content Include="Resources\inventory4Null.png" />
+    <Content Include="Resources\inventoryEmpty.png" />
+    <Content Include="Resources\inventoryNull.png" />
+    <Content Include="Resources\potion.png" />
+    <Content Include="Resources\sword.png" />
+    <Content Include="Resources\swordTest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\img\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

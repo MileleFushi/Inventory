@@ -34,12 +34,15 @@ namespace Inventory
         private void button2_Click(object sender, EventArgs e)
         {
             inventoryComponent1.clearItemList();
-
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             InventoryComponent.itemList = inventoryComponent1.createItemList();
+            foreach (var item in InventoryComponent.itemList)
+            {
+                item.transparentClickablePanel1.Click += new System.EventHandler(inventoryComponent1.mouseOnItemClick);
+            }
             inventoryComponent1.setItems(InventoryComponent.itemList);
         }
     }

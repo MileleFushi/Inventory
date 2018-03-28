@@ -62,22 +62,22 @@ namespace Inventory
 
         public List<Item> createItemList()
         {
-            String iPath = "C:/Users/Iza/source/repos/Inventory-C-sharp/img/swordTest.png";
-            String gPath = "D:/Projects/VisualStudioProjects/Inventory/Inventory/Resources/img/swordTest.png"; //Iza jesteś niesamowita <3
+            String iPath = "C:/Users/Iza/source/repos/Inventory-C-sharp/img/";
+            String gPath = "D:/Projects/VisualStudioProjects/Inventory2.0/img/";
 
             List<Item> items = new List<Item> {
                 new Item("Napierśnik Złotego Lwa", "Napierśnik bronił serce samego Thormunda Walecznego. " +
                 "Budzi postrach wśród przeciwników jako, że jego powierzchnia nie została " +
-                "ani razu skażona choćby najmniejszą rysą.", gPath,"Zbroja", new Dictionary<string, string>(){ { "Obrona", "40" }, { "(Pasywny) \r\nEfekt " +
+                "ani razu skażona choćby najmniejszą rysą.", gPath + "armor.png","Zbroja", new Dictionary<string, string>(){ { "Obrona", "40" }, { "(Pasywny) \r\nEfekt " +
                 "kamiennej skóry", "Zwiększa obronę bohatera przez pierwszą turę o 30 punktów." } }),
                 new Item("Hełm Jednorożca", "Hełm noszony przez Elfich Rycerzy. Swoim blaskiem potrafi " +
-                "oślepic wzroga.", gPath, "Zbroja", new Dictionary<string, string>(){ { "Obrona", "15" }, { "(Aktywny) \r\nEfekt " +
+                "oślepic wzroga.", gPath + "helmet.png", "Zbroja", new Dictionary<string, string>(){ { "Obrona", "15" }, { "(Aktywny) \r\nEfekt " +
                 "oślepienia", "Aktywowana oślepia przeciwnika na okres dwóch tur. " } }),
                 new Item("Eliksir życia", "Potrafi poprawić Twoje " +
-                "samopoczucie oraz wyleczyć Cię z ciężkich ran.", gPath, "Pożywienie", new Dictionary<string, string>(){ { "(Aktywny) " +
+                "samopoczucie oraz wyleczyć Cię z ciężkich ran.", gPath + "potion.png", "Pożywienie", new Dictionary<string, string>(){ { "(Aktywny) " +
                 "\r\nEfekt regeneracji życia", "Aktywowany regeneruje 250 punktów życia." } }),
                 new Item("Miecz Izydora", "Dwuręczny miecz, którego " +
-                "ostrze wysadzone jest runami, o których krążą legendy.", gPath, "Broń", new Dictionary<string, string>(){ { "Si" +
+                "ostrze wysadzone jest runami, o których krążą legendy.", gPath + "sword.png", "Broń", new Dictionary<string, string>(){ { "Si" +
                 "ła", "80" }, { "(Pasywny) \r\nEfekt trwogi", "Obrona przeciwników w pobliżu zmniejsza się o 20 punktów." } }),
             };
 
@@ -227,8 +227,6 @@ namespace Inventory
             return ENCODED_DEFAULT_IMAGE_NULL;
         }
 
-
-
         public void addItem(Item item)
         {
             itemList.Add(item);
@@ -346,9 +344,6 @@ namespace Inventory
             groupTextBox.Font = new Font(comboBox2.SelectedItem.ToString(), groupTextBox.Font.Size, groupTextBox.Font.Style);
             descriptionTextBox.Font = new Font(comboBox2.SelectedItem.ToString(), descriptionTextBox.Font.Size, descriptionTextBox.Font.Style);
             attributesTextBox.Font = new Font(comboBox2.SelectedItem.ToString(), attributesTextBox.Font.Size, attributesTextBox.Font.Style);
-
-            
-
         }
     
     }

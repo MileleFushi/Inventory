@@ -219,17 +219,6 @@ namespace Inventory
                 return null;
             }
         }
-
-        public Dictionary<String, String> setAttributes(List<Dictionary<String, String>> attribute)
-        {
-            Dictionary<String, String> dic = new Dictionary<String, String>();
-            for(int i=0; i< attribute.Count; i++)
-            {
-                //dic.Add(attribute[i]);
-            }
-
-            return dic;
-        }
         
         private void transparentClickablePanel1_Click(object sender, EventArgs e)
         {
